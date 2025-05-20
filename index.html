@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>QR Share</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    #messages { margin-top: 20px; }
+    .sender-name {
+      font-weight: bold;
+      margin-right: 5px;
+    }
+    .sender {
+      color: red;
+    }
+    .receiver {
+      color: blue;
+    }
+    .chat-image {
+      max-width: 200px;
+      max-height: 200px;
+      display: block;
+      margin-top: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>QR Share Session</h1>
+  <input id="username" placeholder="Enter your name" />
+  <div id="qr-section">
+    <button onclick="createSession()">Create Session</button>
+    <div id="qr-code"></div>
+  </div>
+
+  <div id="chat-section" style="display:none;">
+    <br/>
+    <input id="msg" placeholder="Type something..." />
+    <button onclick="sendMessage()">Send</button>
+    <br/>
+    <input type="file" id="imageInput" accept="image/*" />
+    <button onclick="uploadImage()">Upload Image</button>
+    <div id="messages"></div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="client.js"></script>
+</body>
+</html>
